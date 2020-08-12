@@ -25,17 +25,16 @@ class ViewController: UIViewController {
         //alpha
         leftView.alpha = CGFloat( sender.value / sender.maximumValue)
         rightView.alpha = CGFloat( sender.value / sender.maximumValue)
-        //shift
-        //leftView.transform = CGAffineTransform(translationX: 20 * sender.value, y: 0)
-        //rightView.transform = CGAffineTransform(translationX: -20 * sender.value, y: 0)
+        
+        
         let index = MoveSegmentedControl.selectedSegmentIndex
         switch index {
         case 0:
             leftView.frame.origin.x = CGFloat(0 + 10 * sender.value * 1.8)
             rightView.frame.origin.x = CGFloat(480 - 10 * sender.value * 0.2)
         case 1:
-            leftView.frame.origin.x = CGFloat(0 + 10 * sender.value)
-            rightView.frame.origin.x = CGFloat(480 - 10 * sender.value)
+            leftView.transform = CGAffineTransform(translationX: CGFloat(10 * sender.value), y: 0)
+            rightView.transform = CGAffineTransform(translationX: CGFloat(-9 * sender.value), y: 0)
         default:
             return
         }
